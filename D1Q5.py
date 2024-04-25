@@ -69,17 +69,20 @@ rhoData=[]
 t = 0
 uprho=rho
 upu=u
-uprho1=rho #all of those are auxilary variables that will be used in the loop
+uprho1=rho
+upu1=u #all of those are auxilary variables that will be used in the loop
 
 
 
 while t <= sT:
     uprho1=collideAndStream(uprho, upu)[0,:]
-    upu=collideAndStream(uprho, upu)[1,:]
+    upu1=collideAndStream(uprho, upu)[1,:]
     uprho=uprho1
+    upu=upu1
     rhoData.append(uprho)
     uData.append(upu)
     t += dt
+
 
 
 def rhoplot(t):
